@@ -2,7 +2,7 @@
 layout: post
 title: "My take on IDORs"
 author: "joelczk"
-tags: 
+tags: vulns
 excerpt_separator: <!--more-->
 ---
 
