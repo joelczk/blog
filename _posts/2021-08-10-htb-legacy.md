@@ -5,7 +5,7 @@ author: "joelczk"
 tags: HTB
 excerpt_separator: <!--more-->
 ---
-I've just completed Legacy from HTB! In my opinion, Legacy is a rather tedious box, especially for someone unfamiliar with Windows exploit(And trying not to use Metasploit to solve the box!). Here's a quick writeup on how I went about solving this box
+I've just completed Legacy from HTB! In my opinion, Legacy is a rather tedious box, especially for someone unfamiliar with Windows exploit(And trying not to use Metasploit to solve the box!). Here's a quick writeup on how I solved this box.
 
 <!--more-->
 
@@ -14,8 +14,9 @@ I've just completed Legacy from HTB! In my opinion, Legacy is a rather tedious b
 **IP Address** : 10.10.10.4\
 **Operating System** : Windows
 
-**Reflections**:
-- This box took me a considerable amount of time to complete as I was unfamiliar with SMB servers in the Windows environment
+## Remarks
+
+- This box took me a considerable amount of time to complete as I was rather unfamiliar with SMB servers in the Windows environment
 - There are 2 ways to exploit this box - the metasploit and non-metasploit way.  Of course, the metasploit way is always easier to go about exploiting, but I would suggest trying to non-metasploit way to really understand what is going on in the box.
 - Last but not least, there are times when the box gets buggy and the reverse shell might not work as intended. So, just reset the machine and you should be good to go!
 
