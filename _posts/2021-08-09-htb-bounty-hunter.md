@@ -87,7 +87,7 @@ async function bountySubmit() {
 
 Looking at the website, we discovered a `log_submit.php` endpoint. This page contains a form that can be submitted. We will then try to send a POST request to the backend server and intercept it with Burp. From the requests intercepted by Burp, we realize that the POST request is being redirected to the `/tracker_diRbPr00f314.php` endpoint that we found earlier. Apart from that, the payload in the request body also seems to have been URL encoded. 
 
-![Burp request](../assets/bounty_hunter/burp.png){: width="500"}
+<img src="../assets/bounty_hunter/burp.png" width="500"/>
 
 Next we will first URL decode the payload. However, we realize that the payload is still encoded. But now, we realize that this encoded payload can be easily decoded with Base64 encoding. The final encoded payload matches the XML that we have obtained from the `bountylog.js` file that we have found earlier. This gives us the idea that we could do an XML injection on the payload.
 
