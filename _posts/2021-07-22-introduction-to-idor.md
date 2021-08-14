@@ -2,7 +2,7 @@
 layout: post
 title: "My take on IDORs"
 author: "joelczk"
-tags: vulns
+tags: Vulns
 excerpt_separator: <!--more-->
 ---
 
@@ -21,6 +21,8 @@ In short, IDORs arise due to missing or insufficient access control mechanism th
 ## How do IDORs work?
 
 ![IDOR illustration](../assets/idor/idor_illustration.png)
+
+![IDOR illustration](./assets/idor/idor_illustration_1.png)
 
 This is a perfect illustration of how IDORs actually work. In this scenario, a user with a user id of `1234` changes his user id to `123467`, but yet he is still able to withdraw money from his bank account due to a lack of proper validation of the user's identity. 
 
