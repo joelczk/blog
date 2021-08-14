@@ -27,10 +27,10 @@ author: "joelczk"
 
 > [+] Teaching Assistant, NUS (Aug 2020 - Dec 2020)\
 > [+] Cybersecurity Research Intern, NCL Labs (May 2020 - Jul 2020)\
-> [+] Orbital Project Advisor, NUS (May 2020 - Jul 2020)\
+> [+] Orbital Project Advisor, NUS (May 2020 - Jul 2020)
 
 
 **$ cat /joel/Desktop/links.md**
 
 > [+] [Resume](https://github.com/joelczk/Awesome-CV/blob/master/joel_resume.pdf)\
-> [+] [LinkedIn](https://sg.linkedin.com/in/joel-chang-1a034a188)\
+> [+] [LinkedIn](https://sg.linkedin.com/in/joel-chang-1a034a188)
