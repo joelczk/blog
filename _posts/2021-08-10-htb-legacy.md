@@ -322,7 +322,7 @@ type user.txt
 <Redacted user flag>
 ```
 
-#### Obtaining root flag
+#### Obtaining system flag
 
 ```bash
 C:\Documents and Settings\john\Desktop>cd ../..
