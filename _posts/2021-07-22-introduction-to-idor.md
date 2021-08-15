@@ -7,10 +7,9 @@ excerpt_separator: <!--more-->
 ---
 
 Recently, I have been very much involved in doing some (minimal) bug hunting and discovering vulnerabilities. And man, the amount of IDORs that I've found on some of these platforms in quite insane!
+<!--more-->
 
 So, if youre a business owner and do not want to be leaking your customer's/client's data (And falling prey to PDPA/GDPR etc.), continue reading on :-)
-
-<!--more-->
 
 ## Introduction to IDORs
 
