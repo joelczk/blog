@@ -48,3 +48,16 @@ Firstly, we have to copy the CA certificate to Android as a system-level credent
 * If not, you will have to install ADB from [Android SDK platform tools](https://developer.android.com/studio/releases/platform-tools)
 
 ```
+adb root
+adb remount
+adb shell
+adb push <path to your-hash-value-renamed-file> /system/etc/security/cacerts/
+chmod 644 /system/etc/security/cacerts/<hash-value-renamed-file>
+restart
+```
+
+Next, just verify that the CA certificate has been successfully installed as a system-level certificate. This can be done by navigating to the _settings_ on your emulator and click on _view security credentials_. If the installation is successful, you should have a certificate by *Portswigger* under the system certificates.
+
+Last but not least, we will have to configure the android emulator to send all the requests to the proxy. To do that, go to _settings > wifi_ oon your emulator and long press on the Wifi network that you are connected to. Afterwards, click on _modify network_ when a modal shows up, and select _show advanced options_. Under the _proxy_ options select _manual_ and modify the IP address and the port that you want to proxy your requests to.
+
+Now, all that is left is to download your target APK and you can intercept all the HTTPS traffic from the APK successfully. 
