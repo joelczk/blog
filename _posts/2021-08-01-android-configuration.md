@@ -5,7 +5,7 @@ author: "joelczk"
 tags: Tutorial
 excerpt_separator: <!--more-->
 ---
-Ever since the changes to the trusted certificate authority to Android Nougat, android applications that target API level 24 and above no longer trust user or admin-added CAs for secure connections. This has brought a lot of headaches for many of us doing mobile pentesting as we are now unable to decrypt the SSL/TLS traffic and intercept the HTTPS requests using Burp suite by just downloading the CA certificate.
+Ever since the changes to the trusted certificate authority to Android Nougat, android applications that target API level 24 and above no longer trust user or admin-added CAs for secure connections. <!--more-->This has brought a lot of headaches for many of us doing mobile pentesting as we are now unable to decrypt the SSL/TLS traffic and intercept the HTTPS requests using Burp suite by just downloading the CA certificate.
 
 To go round this, there are essentially 2 ways we can do it:
 1. Modify the APK file and recompile the APK file to allow proxy connections
@@ -13,7 +13,7 @@ To go round this, there are essentially 2 ways we can do it:
 
 Today, I am going to give a short introduction about how to install CA certificate as a system/root certificate in your android device
 
-<!--more-->
+
 
 ## Pre-requisites
 1. Rooted device/emulator
@@ -60,4 +60,4 @@ Next, just verify that the CA certificate has been successfully installed as a s
 
 Last but not least, we will have to configure the android emulator to send all the requests to the proxy. To do that, go to _settings > wifi_ oon your emulator and long press on the Wifi network that you are connected to. Afterwards, click on _modify network_ when a modal shows up, and select _show advanced options_. Under the _proxy_ options select _manual_ and modify the IP address and the port that you want to proxy your requests to.
 
-Now, all that is left is to download your target APK and you can intercept all the HTTPS traffic from the APK successfully. 
+Now, all that is left is to download your target APK and you can intercept all the HTTPS traffic from the APK successfully.     
