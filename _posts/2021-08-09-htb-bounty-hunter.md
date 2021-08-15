@@ -25,7 +25,7 @@ As usual, lets first start with enumerating all the open ports and services behi
 
 Upon naviagation to the site, we also realize that the website uses `PHP` files from the `wapplyze` plugin that we installed on our web browser.
 
-![Image of webapplyzer plugin](../assets/bounty_hunter/wapplyzer.png)
+<img src="../assets/bounty_hunter/wapplyzer.png" width="1000"/>
 
 Using that information, we will run a directory enumeration on the webserver to identify all the `php` files hosted on the web server. During this process, we noticed an interesting file `db.php` and a `resources` directory on the webserver
 
