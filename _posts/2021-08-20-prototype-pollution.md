@@ -19,7 +19,9 @@ Before I dive into the technical causes of prototype pollution, let me introduce
 `__proto__` is a prototype chain which refers to all the `prototypes` of an object and every single `Object` in JavaScript has `__prototype__` as their attribute. When `__prototype__` was implmented, it was meant to be created as a feature to support class inheritance etc. However, such a feature introduced a vulnerability in it, which is prototype pollution that we are going to talk about today.
 
 ## What is prototype pollution
-Prototype pollution occurs when a malicious actor manipulates the `__proto__` either by adding new prototypes into `__proto__` or by modifying existing prototypes in `__proto__`. Since every `Object` has `__proto__` as their attribute, the addition of new prototypes/modification of existing prototypes are inherited by all the objects. The consequence of this would be that this opens up a new attack surface where malicious actors can actually inject malicious code to carry out Remote Code Execution Attacks or to cause Reflected XSS attacks by triggerring exceptions.
+Prototype pollution occurs when a malicious actor manipulates the `__proto__` either by adding new prototypes into `__proto__` or by modifying existing prototypes in `__proto__`. Since every `Object` has `__proto__` as their attribute, the addition of new prototypes/modification of existing prototypes are inherited by all the objects. 
+
+The consequence of this would be that this opens up a new attack surface where malicious actors can actually inject malicious code to carry out Remote Code Execution Attacks or to cause Reflected XSS attacks by triggerring exceptions.
 
 ## Mitigations to prototype pollution
 The first mitigation would be to use `Object.freeze`. Freezing any `Object` will prevent new `Prototypes` from being added to the `Object`. However, such a mitigation contains a risk of breaking any system, especially larger commerical sites where it may affect the inheritance of features or functionality between `Objects`
