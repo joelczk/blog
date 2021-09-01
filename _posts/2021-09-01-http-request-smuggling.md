@@ -35,7 +35,7 @@ Such an exploit is considered to be criticial to the web application as it allow
 
 ## Types of Request Smuggling attacks
 
-1. CL-TE attack
+### 1. CL-TE attack
 
 In this attack, the front-end server processes the `Content-Length` header and the back-end server processes the `Transfer-Encoding` header. 
 
@@ -52,7 +52,7 @@ Transfer-Encoding: chunked
 SMUGGLED
 ```
 
-2. TE-CL attack
+### 2. TE-CL attack
 
 In this attack, the front-end server processes the `Transfer-Encoding` header and the front-end server processes the `Content-Length` header.
 
@@ -69,7 +69,7 @@ SMUGGLED
 0
 ```
 
-3. TE-TE attack
+### 3. TE-TE attack
 
 In this attack, both the front-end and the back-end server supports `Transfer-Encoding` header, but the headers in one of the servers can be obfuscated in a way such that they do not process the header. Afterwards, the remaining of the attack will take the form of either TE-CL or CL-TE, depending on whether the front-end or the back-end server can be induced to ignore the header.
 
