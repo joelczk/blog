@@ -6,7 +6,7 @@ tags: Vulns
 excerpt_separator: <!--more-->
 ---
 
-With the recent release of a new prototype pollution scanner on [Github](https://github.com/kleiton0x00/ppmap), I've seeing more and more issues related XSS caused by prototype pollution and guessed its time I write an article about it.
+With the recent release of a new prototype pollution scanner on [Github](https://github.com/kleiton0x00/ppmap), I've been seeing more and more issues related XSS caused by prototype pollution and guessed its time I write an article about it.
 <!--more-->
 
 ## Basic knowledge about JavaScript
