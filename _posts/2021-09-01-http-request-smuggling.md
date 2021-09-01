@@ -31,7 +31,7 @@ HTTP Request Smuggling would then arise when an attacker sends a single maliciou
 
 Such an exploit is considered to be criticial to the web application as it allows malicious actors to bypass security controls which allows them to gain access to sensitive information that could potentially result in account takeover and directly compromise other users.
 
-![Request Smuggline illustration](../assets/request_smuggling/smuggline_example.PNG)
+![Request Smuggling illustration](../assets/request_smuggling/smuggling_example.PNG)
 
 ## Types of Request Smuggling attacks
 
