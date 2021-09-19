@@ -408,7 +408,7 @@ john@writer:~$ id
 uid=1001(john) gid=1001(john) groups=1001(john),1003(management)
 ```
 
-![Writable APT files](../assets/writer/apt_management.png)
+<img src = "../assets/writer/apt_management.png" width = "1000">
 
 From the postfix, files we also realize that the ```disclaimer``` program will be executed when the user is ```john```.
 
