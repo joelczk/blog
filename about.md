@@ -13,7 +13,7 @@ author: "joelczk"
 
 **$ cat /joel/Desktop/introduction.md**
 
-> Hi everyone! I am a penultimate student in NUS and currently doing his internship at Sea. This blog serves as my personal blog to document my journney in cybersecurity.
+> Hi everyone! I am a penultimate student in NUS and currently discovering the field of cybersecurity. This blog serves as my personal blog to document my journney in cybersecurity.
 
 **$ cat /joel/Desktop/milestones.md**
 
