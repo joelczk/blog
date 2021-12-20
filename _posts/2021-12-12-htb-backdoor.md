@@ -58,7 +58,7 @@ Since we know that the website is vulnerable to LFI, I proceeded to try serveral
 
 ![GDB Server](../assets/backdoor/gdb_server.png)
 
-With furthur research on GDBServer and the writeup (here)[https://security.tencent.com/index.php/blog/msg/137], I realized that a rce could be exploited on a publicly-exposed GDB server. 
+With furthur research on GDBServer and the writeup [here](https://security.tencent.com/index.php/blog/msg/137), I realized that a rce could be exploited on a publicly-exposed GDB server. 
 
 However, there are 2 pieces of information that are a few information that we have to find out before we can continue with the exploit:
 - Architecture of the server (Whether it is 32-bit or 64-bit)
