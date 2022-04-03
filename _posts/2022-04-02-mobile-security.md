@@ -69,10 +69,6 @@ One thing to take note about web views is that exported web views can also be re
 
 Now that we know what are web views, let us dwelve deeper into insecure web views. Insecure web views are most commonly brought about by a lack of validation on the intent parameters. Consider the following snippet below, the intent parameter does not validate the ```uri``` parameter that is being passed to the webview. This presents a potential vulnerability as a malicious attacker can make use of this activity to modify the ```uri``` parameter that is passed to the webview which may eventually redirect the victim to another site.
 
-In some of the scenarios, there may be additional permissions that are given to the webview such as the ability to execute javascript code or the ability to read user's files. This may then cause other consequences such as code execution ability or obtaining the information of other users.
-
-However, at the same time, this vulnerability may not be reporducible on a non-rooted environment and may either require a rooted environment or be chained with other vulnerabilities such as Intent Injection
-
 ```java
 // At onCreate()
 Intent intent = getIntent();
@@ -86,6 +82,10 @@ if (intent != null) {
 WebView webView2 = this.webView;
 webView2.loadUrl(this.uri + "?role=admin")
 ```
+
+In some of the scenarios, there may be additional permissions that are given to the webview such as the ability to execute javascript code or the ability to read user's files. This may then cause other consequences such as code execution ability or obtaining the information of other users.
+
+However, at the same time, this vulnerability may not be reporducible on a non-rooted environment and may either require a rooted environment or be chained with other vulnerabilities such as Intent Injection
 
 ## Vulnerability #5 : Intent Injection
 For intent injection, malicious actors are able to force the launch of non-exported components which may then cause the user to carry out unintended actions and in some cases, bypass the authentication process. However, this vulnerability has to be chained with the ability to launch arbitary urls via an insecure deep link or an exported activity.
