@@ -13,9 +13,9 @@ author: "joelczk"
 
 **$ cat /joel/Desktop/introduction.md**
 
-> Hi everyone! I am a penultimate student in NUS and currently discovering the field of cybersecurity. This blog serves as my personal blog to document my journney in cybersecurity.
+> Hi everyone! I am a penultimate student in NUS and currently discovering the field of cybersecurity. This blog serves as my personal blog to document my journney in cybersecurity, and to pen down some of my thoughts as I go about my journey of discovery in the field of Cybersecurity
 
-**$ cat /joel/Desktop/milestones.md**
+**$ ls /joel/Desktop/milestones**
 
 > [+] Participated in Google CTF (Got carried, but it was a new experience for me)\
 > [+] Started final year in school\
@@ -23,14 +23,15 @@ author: "joelczk"
 > [+] Finalist for Code Exp hackathon
 
 
-**$ cat /joel/Desktop/experiences.md**
+**$ ls /joel/Desktop/experiences**
 
 > [+] Teaching Assistant, NUS (Aug 2020 - Dec 2020)\
 > [+] Cybersecurity Research Intern, NCL Labs (May 2020 - Jul 2020)\
-> [+] Orbital Project Advisor, NUS (May 2020 - Jul 2020)
+> [+] Orbital Project Advisor, NUS (May 2020 - Jul 2020)\
+> [+] Security Engineer Intern, Sea (June 2020 - May 2021)
 
 
-**$ cat /joel/Desktop/links.md**
+**$ ls /joel/Desktop/links**
 
 > [+] [Resume](https://github.com/joelczk/Awesome-CV/blob/master/joel_resume.pdf)\
 > [+] [LinkedIn](https://sg.linkedin.com/in/joel-chang-1a034a188)
