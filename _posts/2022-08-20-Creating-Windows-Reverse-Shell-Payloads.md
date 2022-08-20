@@ -82,4 +82,4 @@ Afterwards, executing our ```payload.exe``` binary that we have created earlier 
 
 ## Acknowledgements
 The following post(s) were referenced during my research on this topic:
-- https://medium.com/@minix9800/exploit-eternal-blue-ms17-010-for-window-7-and-higher-custom-payload-efd9fcc8b623
+- [https://medium.com/@minix9800/exploit-eternal-blue-ms17-010-for-window-7-and-higher-custom-payload-efd9fcc8b623](https://medium.com/@minix9800/exploit-eternal-blue-ms17-010-for-window-7-and-higher-custom-payload-efd9fcc8b623)
